@@ -1,20 +1,21 @@
 pipeline {
-  agent any {
+    agent any
+
     tools {
-      maven "3.9.12"
+        maven '3.9.12'
     }
+
     stages {
-      stage('Clean and install'){
-        steps {
-          bat 'mvn clean install'
+        stage('Clean & Compile') {
+            steps {
+                bat 'mvn clean compile'
+            }
         }
-      }
-      stage('Package')
-      {
-        steps {
-          bat 'mvn package'
+
+        stage('Package') {
+            steps {
+                bat 'mvn package'
+            }
         }
-      }
     }
-  }
 }
